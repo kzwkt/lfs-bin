@@ -33,7 +33,9 @@ esac
 ##------------------------------------------------------------------------------------------------------##
 
 #sources
+cd $LFS/sources
 wget https://www.linuxfromscratch.org/lfs/view/stable/wget-list-sysv 
+
 download_slpit() {
 wget --input-file=wget-list-sysv --continue --directory-prefix=$LFS/sources
 }
@@ -41,8 +43,9 @@ wget --input-file=wget-list-sysv --continue --directory-prefix=$LFS/sources
 #md5sum -c md5sums
 
 download_combo() {
+cd $LFS/sources
 wget https://repo.jing.rocks/lfs/lfs-packages/lfs-packages-12.3.tar
-tar --strip-components=1 -xf  lfs-packages-12.3.tar
+tar --strip-components=1 -xf  lfs-packages-12.3.tar 
 }
 
 getver() {
