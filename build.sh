@@ -16,7 +16,7 @@ umask 022
 ##------------------------------------------------------------------------------------------------------##
 
 # rootfs layout
-mkdir /lfs
+mkdir $LFS
 mkdir -v $LFS/sources
 mkdir $LFS/tools
 chmod 755 $LFS
