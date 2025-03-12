@@ -1,1 +1,25 @@
+on:
+  workflow_dispatch:
 
+jobs:
+  process-config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+  
+      - name: install deps and build rootfs
+        run: |
+          bash build.sh  
+          
+      - name: Create a new GitHub release and tag
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: 1.0.0
+          name: "Release LFS"
+          body: "stable lfs build"
+          files: lfs.tar.xz
+            
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
