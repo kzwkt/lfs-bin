@@ -4,7 +4,7 @@ apt install -y  binutils bison gawk gcc grep gzip make patch texinfo xz-utils wg
 ##------------------------------------------------------------------------------------------------------##
 
 # envs
-export LFS=/lfs
+export LFS=$PWD/lfs
 export LC_ALL=POSIX 
 export LFS_TGT=$(uname -m)-lfs-linux-gnu 
 export MAKEFLAGS=-j$(nproc)
