@@ -371,29 +371,5 @@ chown -R root:root $LFS/lib64
 mkdir -pv $LFS/{dev,proc,sys,run}
 rm -rf $LFS/sources
 tar -cJf lfs.tar.xz -C $LFS .
+##------------------------------------------------------------------------------------------------------##
 
-
-
-
-
-
-    
-
-
-
-
-            
-
-  
- 
-
-
-    
-             
-
-
-
-
-
- 
- 
