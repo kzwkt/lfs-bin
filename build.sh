@@ -370,7 +370,7 @@ chown  -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
 chown -R root:root $LFS/lib64
 mkdir -pv $LFS/{dev,proc,sys,run}
 rm -rf $LFS/sources
-tar -cJf $LFS.tar.xz -C $LFS .
+tar -cJf lfs.tar.xz -C $LFS .
 
 
 
