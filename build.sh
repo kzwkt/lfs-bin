@@ -33,11 +33,18 @@ esac
 ##------------------------------------------------------------------------------------------------------##
 
 #sources
-cd  $LFS/sources
+
+download_slpit() {
 wget https://www.linuxfromscratch.org/lfs/view/stable/wget-list-sysv 
 wget --input-file=wget-list-sysv --continue --directory-prefix=$LFS/sources
 wget https://www.linuxfromscratch.org/lfs/view/stable/md5sums
 md5sum -c md5sums
+}
+
+download_combo() {
+wget https://repo.jing.rocks/lfs/lfs-packages/lfs-packages-12.3.tar
+tar --strip-components=1 -xf  lfs-packages-12.3.tar
+}
 
 getver() {
  trarball=$(grep -oP "[^\s]+$1-[0-9\.]+(\.tar\.xz|\.tar\.gz)" $LFS/sources/wget-list-sysv | sed 's|.*/||')
@@ -50,6 +57,9 @@ getver $1
 tar xf $tarball
 cd $dirname
 }
+
+cd  $LFS/sources
+download_combo
 
 prepare_gcc() {
 extsrc gcc 
@@ -67,7 +77,6 @@ mv -v $dirnae mpc
 
 # chown root:root  *
 # for all fast download 
-#wget https://repo.jing.rocks/lfs/lfs-packages/lfs-packages-12.3.tar
 
 ##------------------------------------------------------------------------------------------------------##
 extsrc binutils
