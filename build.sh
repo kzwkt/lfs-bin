@@ -36,7 +36,7 @@ esac
 cd $LFS/sources
 wget https://www.linuxfromscratch.org/lfs/view/stable/wget-list-sysv 
 
-download_slpit() {
+download_split() {
 wget --input-file=wget-list-sysv --continue --directory-prefix=$LFS/sources
 }
 #wget https://www.linuxfromscratch.org/lfs/view/stable/md5sums
@@ -49,7 +49,7 @@ tar --strip-components=1 -xf  lfs-packages-12.3.tar
 }
 
 getver() {
- trarball=$(grep -oP "[^\s]+$1-[0-9\.]+(\.tar\.xz|\.tar\.gz)" $LFS/sources/wget-list-sysv | sed 's|.*/||')
+ tarball=$(grep -oP "[^\s]+$1-[0-9\.]+(\.tar\.xz|\.tar\.gz)" $LFS/sources/wget-list-sysv | sed 's|.*/||')
 dirname="${tarball%.tar.*}"
 }
 
@@ -68,13 +68,13 @@ extsrc gcc
 mv ../$pk ../gcc && cd ../gcc
 getver mpfr
 tar xf ../$tarball  
-mv -v $dirnae mpfr
+mv -v $dirname mpfr
 getver gmp
 tar -xf ../$tarball
-mv -v $dirnae gmp
-getver mpv
+mv -v $dirname gmp
+getver mpc
 tar -xf ../$tarball
-mv -v $dirnae mpc
+mv -v $dirname mpc
 }
 
 # chown root:root  *
