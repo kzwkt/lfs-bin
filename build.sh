@@ -419,7 +419,7 @@ make DESTDIR=$LFS install
 ln -sv gcc $LFS/usr/bin/cc
 
 ##------------------------------------------------------------------------------------------------------##
-
+sudo su
 chown  -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
 chown -R root:root $LFS/lib64
 mkdir -pv $LFS/{dev,proc,sys,run}
